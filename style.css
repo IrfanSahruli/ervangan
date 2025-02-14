@@ -1,0 +1,39 @@
+body {
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  overflow: hidden;
+}
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  transform: rotate(45deg);
+  animation: fall 5s infinite;
+}
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+}
+.heart::before {
+  top: -10px;
+  left: 0;
+}
+.heart::after {
+  left: 10px;
+  top: 0;
+}
+@keyframes fall {
+  0% {
+    top: -10%;
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}

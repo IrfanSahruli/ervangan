@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shany Rosdianaaaaa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background: linear-gradient(135deg, #f5d0e3, #fbcfe8);
+        overflow: hidden;
+        font-family: "Arial", sans-serif;
+      }
+      .heart {
+        position: absolute;
+        color: #ff6b81;
+        font-size: 1.5rem;
+        animation: float 6s infinite ease-in-out;
+        opacity: 0.8;
+      }
+      @keyframes float {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-30px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gradient-to-r from-pink-100 to-pink-300">
+    <div class="text-center text-gray-800 py-20 relative z-10">
+      <h1 class="text-5xl font-bold mb-5">Hi sayangg, aku ada sesuatuu</h1>
+      <button
+        id="surpriseBtn"
+        class="mt-5 bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-6 rounded-full shadow-lg transition duration-300 transform hover:scale-105"
+      >
+        Tapi klik ini dulu
+      </button>
+      <p id="message" class="hidden text-xl mt-8 leading-relaxed">
+        WOOF YOU 
+      </p>
+      <button
+        id="curiosityBtn"
+        class="hidden mt-5 bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-6 rounded-full shadow-lg transition duration-300 transform hover:scale-105"
+      >
+        Sekali lagi terakhir
+      </button>
+      <p id="secretMessage" class="hidden text-xl mt-8 leading-relaxed">
+        
+      </p>
+    </div>
+
+    <audio id="bgMusic" loop>
+      <source src="BungaMaaf.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+
+    <script>
+      const surpriseBtn = document.getElementById("surpriseBtn");
+      const message = document.getElementById("message");
+      const curiosityBtn = document.getElementById("curiosityBtn");
+      const secretMessage = document.getElementById("secretMessage");
+      const bgMusic = document.getElementById("bgMusic");
+
+      surpriseBtn.addEventListener("click", () => {
+        message.classList.remove("hidden");
+        curiosityBtn.classList.remove("hidden");
+        bgMusic.play();
+      });
+
+      curiosityBtn.addEventListener("click", () => {
+        secretMessage.classList.remove("hidden");
+        curiosityBtn.classList.add("hidden");
+      });
+
+      function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.textContent = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 6000);
+      }
+      setInterval(createHeart, 400);
+    </script>
+  </body>
+</html>
